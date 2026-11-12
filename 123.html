@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milenka i Tobiaszek ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  background:
+    radial-gradient(circle at 20% 20%, #48265e 0%, transparent 35%),
+    radial-gradient(circle at 80% 80%, #321d4d 0%, transparent 35%),
+    linear-gradient(135deg, #090b20, #17102d, #100c25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 18px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px white;
+  animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: .2; transform: scale(.7); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+.container {
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.names {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(34px, 8vw, 52px);
+  color: #f2c9ff;
+  margin-bottom: 12px;
+  text-shadow: 0 0 20px #c77cff;
+}
+
+.heart {
+  color: #ff8bc7;
+}
+
+.subtitle {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c8b5dc;
+  margin-bottom: 17px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 7vw, 43px);
+  font-weight: 600;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, #fff, #e5baff, #ffb8d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  color: #c8bad8;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.date {
+  display: inline-block;
+  padding: 10px 22px;
+  border: 1px solid rgba(224, 172, 255, .35);
+  border-radius: 30px;
+  color: #f0caff;
+  background: rgba(255,255,255,.05);
+  font-size: 13px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 20px rgba(190, 105, 255, .1);
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.tile {
+  padding: 23px 8px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(231, 190, 255, .2);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 35px rgba(0,0,0,.15);
+}
+
+.number {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(27px, 7vw, 42px);
+  color: #fff;
+  text-shadow: 0 0 15px rgba(220, 155, 255, .5);
+}
+
+.unit {
+  display: block;
+  margin-top: 7px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #cdb8df;
+  text-transform: uppercase;
+}
+
+.clock-box {
+  color: #c9b4dc;
+  font-size: 13px;
+  margin: 18px 0 30px;
+}
+
+.clock {
+  color: #f5c5ff;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.progress-section {
+  width: 100%;
+  margin: 0 auto 25px;
+  padding: 20px;
+  background: rgba(255,255,255,.045);
+  border: 1px solid rgba(231, 190, 255, .16);
+  border-radius: 18px;
+}
+
+.progress-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #d8c5e8;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.progress-track {
+  height: 9px;
+  width: 100%;
+  background: rgba(255,255,255,.12);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #a45bdb, #f3a6dc);
+  box-shadow: 0 0 15px #d77cff;
+  transition: width 1s linear;
+}
+
+.progress-caption {
+  margin-top: 12px;
+  color: #bda9d0;
+  font-size: 11px;
+}
+
+.bottom-text {
+  font-family: 'Caveat', cursive;
+  color: #e9baff;
+  font-size: 25px;
+  margin-top: 25px;
+}
+
+.footer {
+  margin-top: 35px;
+  color: #887a9c;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.finished {
+  display: none;
+  font-family: 'Caveat', cursive;
+  font-size: 32px;
+  color: #ffc4e5;
+  margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 28px 14px;
+  }
+
+  .countdown {
+    gap: 7px;
+  }
+
+  .tile {
+    padding: 18px 4px;
+    border-radius: 15px;
+  }
+
+  .unit {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .progress-section {
+    padding: 16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<main class="container">
+
+  <div class="names">
+    Milenka <span class="heart">♡</span> Tobiaszek
+  </div>
+
+  <div class="subtitle">Nasze wspólne chwile</div>
+
+  <h1>Do naszego spotkania</h1>
+
+  <p class="description">
+    Każda sekunda przybliża nas do siebie
+  </p>
+
+  <div class="date">
+    21 listopada 2026 • godzina 00:00
+  </div>
+
+  <div class="countdown">
+    <div class="tile">
+      <span class="number" id="days">0</span>
+      <span class="unit">Dni</span>
+    </div>
+
+    <div class="tile">
+      <span class="number" id="hours">00</span>
+      <span class="unit">Godzin</span>
+    </div>
+
+    <div class="tile">
+      <span class="number" id="minutes">00</span>
+      <span class="unit">Minut</span>
+    </div>
+
+    <div class="tile">
+      <span class="number" id="seconds">00</span>
+      <span class="unit">Sekund</span>
+    </div>
+  </div>
+
+  <div class="clock-box">
+    Aktualna godzina:
+    <span class="clock" id="clock">00:00:00</span>
+  </div>
+
+  <section class="progress-section">
+    <div class="progress-top">
+      <span>Nasze odliczanie</span>
+      <span id="percentage">0%</span>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-bar" id="bar"></div>
+    </div>
+
+    <p class="progress-caption">
+      Już coraz bliżej naszego spotkania ♡
+    </p>
+  </section>
+
+  <div class="finished" id="finished">
+    To już dzisiaj! W końcu razem ♡
+  </div>
+
+  <div class="bottom-text">
+    Jeszcze troszkę, Myszko...
+  </div>
+
+  <div class="footer">
+    MILENKA & TOBIASZEK • ♡
+  </div>
+
+</main>
+
+<script>
+const target = new Date(2026, 10, 21, 0, 0, 0);
+const start = new Date(2026, 10, 8, 0, 0, 0);
+
+const $ = id => document.getElementById(id);
+
+// Generowanie gwiazdek
+for (let i = 0; i < 110; i++) {
+  const star = document.createElement('i');
+  star.className = 'star';
+
+  star.style.left = Math.random() * 100 + '%';
+  star.style.top = Math.random() * 100 + '%';
+
+  const size = Math.random() * 2 + 1;
+  star.style.width = size + 'px';
+  star.style.height = size + 'px';
+
+  star.style.animationDelay = Math.random() * 4 + 's';
+  star.style.opacity = .2 + Math.random() * .7;
+
+  $('stars').appendChild(star);
+}
+
+// Aktualizacja odliczania
+function updateCountdown() {
+  const now = new Date();
+  const difference = target - now;
+
+  $('clock').textContent = [
+    now.getHours(),
+    now.getMinutes(),
+    now.getSeconds()
+  ].map(n => String(n).padStart(2, '0')).join(':');
+
+  if (difference <= 0) {
+    $('days').textContent = '0';
+    $('hours').textContent = '00';
+    $('minutes').textContent = '00';
+    $('seconds').textContent = '00';
+
+    $('bar').style.width = '100%';
+    $('percentage').textContent = '100%';
+    $('finished').style.display = 'block';
+    return;
+  }
+
+  const totalSeconds = Math.floor(difference / 1000);
+
+  $('days').textContent = Math.floor(totalSeconds / 86400);
+
+  $('hours').textContent = String(
+    Math.floor(totalSeconds % 86400 / 3600)
+  ).padStart(2, '0');
+
+  $('minutes').textContent = String(
+    Math.floor(totalSeconds % 3600 / 60)
+  ).padStart(2, '0');
+
+  $('seconds').textContent = String(
+    totalSeconds % 60
+  ).padStart(2, '0');
+
+  // Pasek postępu od 8 do 21 listopada
+  const progress = Math.max(0, Math.min(
+    100,
+    (now - start) / (target - start) * 100
+  ));
+
+  $('bar').style.width = progress + '%';
+  $('percentage').textContent = progress.toFixed(1) + '%';
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
