@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Milenka i Tobiaszek ♡</title>
+<title>Nasze spotkanie ♡</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 
@@ -17,19 +17,17 @@
 
 body {
   min-height: 100vh;
+  padding: 35px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: 'Poppins', sans-serif;
   color: white;
   background:
-    radial-gradient(circle at 20% 20%, #48265e 0%, transparent 35%),
-    radial-gradient(circle at 80% 80%, #321d4d 0%, transparent 35%),
-    linear-gradient(135deg, #090b20, #17102d, #100c25);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 35px 18px;
+    radial-gradient(ellipse at 15% 15%, #663b83 0%, transparent 38%),
+    radial-gradient(ellipse at 90% 85%, #762d65 0%, transparent 35%),
+    linear-gradient(145deg, #09091c, #17102d 55%, #24102c);
   overflow-x: hidden;
-  position: relative;
 }
 
 .stars {
@@ -41,141 +39,162 @@ body {
 
 .star {
   position: absolute;
-  background: white;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
-  box-shadow: 0 0 8px white;
-  animation: twinkle 3s infinite ease-in-out;
+  background: #fff;
+  box-shadow: 0 0 10px #e7baff;
+  animation: sparkle 3s ease-in-out infinite;
 }
 
-@keyframes twinkle {
-  0%, 100% { opacity: .2; transform: scale(.7); }
-  50% { opacity: 1; transform: scale(1.3); }
+@keyframes sparkle {
+  0%, 100% { opacity: .2; transform: scale(.6); }
+  50% { opacity: 1; transform: scale(1.4); }
 }
 
 .container {
-  width: 100%;
-  max-width: 650px;
-  text-align: center;
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 680px;
+  text-align: center;
+}
+
+.top-label {
+  display: inline-block;
+  padding: 9px 18px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 30px;
+  color: #eacbff;
+  background: rgba(255,255,255,.06);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
 }
 
 .names {
   font-family: 'Caveat', cursive;
-  font-size: clamp(34px, 8vw, 52px);
-  color: #f2c9ff;
-  margin-bottom: 12px;
-  text-shadow: 0 0 20px #c77cff;
-}
-
-.heart {
-  color: #ff8bc7;
-}
-
-.subtitle {
-  font-size: 12px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: #c8b5dc;
-  margin-bottom: 17px;
+  font-size: clamp(38px, 8vw, 58px);
+  color: #ffd0ed;
+  text-shadow: 0 0 25px rgba(255,150,220,.5);
+  margin-bottom: 8px;
 }
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(30px, 7vw, 43px);
+  font-size: clamp(31px, 7vw, 48px);
   font-weight: 600;
-  margin-bottom: 12px;
-  background: linear-gradient(90deg, #fff, #e5baff, #ffb8d9);
+  line-height: 1.2;
+  background: linear-gradient(90deg, #fff, #e6baff, #ffb9df);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-bottom: 13px;
 }
 
 .description {
-  color: #c8bad8;
-  font-size: 14px;
-  margin-bottom: 30px;
+  color: #c9b8dc;
+  font-size: 13px;
+  margin-bottom: 24px;
 }
 
 .date {
   display: inline-block;
-  padding: 10px 22px;
-  border: 1px solid rgba(224, 172, 255, .35);
-  border-radius: 30px;
-  color: #f0caff;
-  background: rgba(255,255,255,.05);
+  padding: 11px 22px;
+  border-radius: 14px;
+  color: #ffe0f4;
+  background: linear-gradient(120deg, rgba(174,100,220,.2), rgba(255,133,202,.12));
+  border: 1px solid rgba(255,190,235,.25);
   font-size: 13px;
-  margin-bottom: 30px;
-  box-shadow: 0 0 20px rgba(190, 105, 255, .1);
+  margin-bottom: 35px;
 }
 
 .countdown {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  margin-bottom: 25px;
 }
 
 .tile {
-  padding: 23px 8px;
+  position: relative;
+  padding: 25px 8px;
   border-radius: 20px;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(231, 190, 255, .2);
+  background: rgba(255,255,255,.065);
+  border: 1px solid rgba(239,193,255,.2);
+  box-shadow: 0 12px 35px rgba(0,0,0,.2);
   backdrop-filter: blur(12px);
-  box-shadow: 0 10px 35px rgba(0,0,0,.15);
+  overflow: hidden;
+}
+
+.tile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #f3b4ff, transparent);
 }
 
 .number {
   display: block;
   font-family: 'Playfair Display', serif;
-  font-size: clamp(27px, 7vw, 42px);
+  font-size: clamp(28px, 7vw, 43px);
   color: #fff;
-  text-shadow: 0 0 15px rgba(220, 155, 255, .5);
+  text-shadow: 0 0 18px rgba(222,156,255,.55);
 }
 
 .unit {
   display: block;
-  margin-top: 7px;
+  margin-top: 8px;
+  color: #cbb6df;
   font-size: 10px;
   letter-spacing: 2px;
-  color: #cdb8df;
   text-transform: uppercase;
 }
 
-.clock-box {
-  color: #c9b4dc;
-  font-size: 13px;
-  margin: 18px 0 30px;
+.clock {
+  margin: 25px 0 30px;
+  color: #cbb9dc;
+  font-size: 12px;
 }
 
-.clock {
-  color: #f5c5ff;
+.clock span {
+  color: #ffc7eb;
   font-weight: 600;
   letter-spacing: 2px;
+  margin-left: 5px;
 }
 
-.progress-section {
-  width: 100%;
-  margin: 0 auto 25px;
-  padding: 20px;
-  background: rgba(255,255,255,.045);
-  border: 1px solid rgba(231, 190, 255, .16);
-  border-radius: 18px;
+.progress-card {
+  padding: 21px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(239,193,255,.18);
+  box-shadow: 0 10px 35px rgba(0,0,0,.15);
+  text-align: left;
 }
 
-.progress-top {
+.progress-heading {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 10px;
-  color: #d8c5e8;
+  margin-bottom: 14px;
+  color: #e6d4f3;
   font-size: 12px;
-  margin-bottom: 12px;
+}
+
+#percentage {
+  color: #ffc4e8;
+  font-weight: 600;
 }
 
 .progress-track {
-  height: 9px;
+  height: 10px;
   width: 100%;
-  background: rgba(255,255,255,.12);
   border-radius: 20px;
+  background: rgba(255,255,255,.13);
   overflow: hidden;
 }
 
@@ -183,42 +202,43 @@ h1 {
   width: 0%;
   height: 100%;
   border-radius: 20px;
-  background: linear-gradient(90deg, #a45bdb, #f3a6dc);
-  box-shadow: 0 0 15px #d77cff;
-  transition: width 1s linear;
+  background: linear-gradient(90deg, #a65be0, #e88bd4, #ffc2e6);
+  box-shadow: 0 0 16px #d879ef;
+  transition: width 1s ease;
 }
 
 .progress-caption {
-  margin-top: 12px;
-  color: #bda9d0;
+  color: #bca9cf;
   font-size: 11px;
+  text-align: center;
+  margin-top: 13px;
 }
 
-.bottom-text {
+.message {
   font-family: 'Caveat', cursive;
-  color: #e9baff;
-  font-size: 25px;
-  margin-top: 25px;
+  font-size: 29px;
+  color: #f4c4eb;
+  margin-top: 28px;
 }
 
 .footer {
-  margin-top: 35px;
-  color: #887a9c;
+  color: #847594;
   font-size: 10px;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  margin-top: 28px;
 }
 
 .finished {
   display: none;
+  color: #ffd1ed;
   font-family: 'Caveat', cursive;
   font-size: 32px;
-  color: #ffc4e5;
-  margin-top: 20px;
+  margin-top: 22px;
 }
 
 @media (max-width: 480px) {
   body {
-    padding: 28px 14px;
+    padding: 28px 13px;
   }
 
   .countdown {
@@ -226,7 +246,7 @@ h1 {
   }
 
   .tile {
-    padding: 18px 4px;
+    padding: 20px 4px;
     border-radius: 15px;
   }
 
@@ -235,8 +255,12 @@ h1 {
     letter-spacing: 1px;
   }
 
-  .progress-section {
-    padding: 16px;
+  .progress-card {
+    padding: 17px;
+  }
+
+  .progress-heading {
+    font-size: 11px;
   }
 }
 </style>
@@ -248,20 +272,20 @@ h1 {
 
 <main class="container">
 
+  <div class="top-label">Wyjątkowy dzień ♡</div>
+
   <div class="names">
-    Milenka <span class="heart">♡</span> Tobiaszek
+    Milenka <span style="color:#ff9bd5">♡</span> Tobiaszek
   </div>
 
-  <div class="subtitle">Nasze wspólne chwile</div>
-
-  <h1>Do naszego spotkania</h1>
+  <h1>Już niedługo się zobaczymy</h1>
 
   <p class="description">
-    Każda sekunda przybliża nas do siebie
+    Kolejne wspólne chwile są coraz bliżej
   </p>
 
   <div class="date">
-    21 listopada 2026 • godzina 00:00
+    5 grudnia 2026 • godzina 00:00
   </div>
 
   <div class="countdown">
@@ -286,14 +310,14 @@ h1 {
     </div>
   </div>
 
-  <div class="clock-box">
+  <div class="clock">
     Aktualna godzina:
-    <span class="clock" id="clock">00:00:00</span>
+    <span id="clock">00:00:00</span>
   </div>
 
-  <section class="progress-section">
-    <div class="progress-top">
-      <span>Nasze odliczanie</span>
+  <section class="progress-card">
+    <div class="progress-heading">
+      <span>Postęp do naszego spotkania</span>
       <span id="percentage">0%</span>
     </div>
 
@@ -302,49 +326,47 @@ h1 {
     </div>
 
     <p class="progress-caption">
-      Już coraz bliżej naszego spotkania ♡
+      Każdy procent to kolejny krok bliżej ♡
     </p>
   </section>
 
   <div class="finished" id="finished">
-    To już dzisiaj! W końcu razem ♡
+    To już dzisiaj! Nasz dzień nadszedł ♡
   </div>
 
-  <div class="bottom-text">
-    Jeszcze troszkę, Myszko...
+  <div class="message">
+    Jeszcze trochę, Myszko...
   </div>
 
   <div class="footer">
-    MILENKA & TOBIASZEK • ♡
+    MILENKA & TOBIASZEK
   </div>
 
 </main>
 
 <script>
-const target = new Date(2026, 10, 21, 0, 0, 0);
+const target = new Date(2026, 11, 5, 0, 0, 0);
 const start = new Date(2026, 10, 8, 0, 0, 0);
 
 const $ = id => document.getElementById(id);
 
-// Generowanie gwiazdek
-for (let i = 0; i < 110; i++) {
-  const star = document.createElement('i');
+// Gwiazdki na tle
+for (let i = 0; i < 120; i++) {
+  const star = document.createElement('div');
   star.className = 'star';
 
-  star.style.left = Math.random() * 100 + '%';
-  star.style.top = Math.random() * 100 + '%';
+  const size = Math.random() * 2.5 + 1;
 
-  const size = Math.random() * 2 + 1;
   star.style.width = size + 'px';
   star.style.height = size + 'px';
-
+  star.style.left = Math.random() * 100 + '%';
+  star.style.top = Math.random() * 100 + '%';
   star.style.animationDelay = Math.random() * 4 + 's';
-  star.style.opacity = .2 + Math.random() * .7;
+  star.style.animationDuration = (2 + Math.random() * 3) + 's';
 
   $('stars').appendChild(star);
 }
 
-// Aktualizacja odliczania
 function updateCountdown() {
   const now = new Date();
   const difference = target - now;
@@ -383,7 +405,7 @@ function updateCountdown() {
     totalSeconds % 60
   ).padStart(2, '0');
 
-  // Pasek postępu od 8 do 21 listopada
+  // Procenty liczone od 8 listopada do 5 grudnia
   const progress = Math.max(0, Math.min(
     100,
     (now - start) / (target - start) * 100
