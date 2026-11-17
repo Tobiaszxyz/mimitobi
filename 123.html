@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nasze spotkanie ♡</title>
+<title>Milenka i Tobiaszek ♡</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 
@@ -15,12 +15,13 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100vh;
   padding: 35px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-family: 'Poppins', sans-serif;
   color: white;
   background:
@@ -35,14 +36,13 @@ body {
   inset: 0;
   pointer-events: none;
   overflow: hidden;
+  z-index: 0;
 }
 
 .star {
   position: absolute;
-  width: 3px;
-  height: 3px;
   border-radius: 50%;
-  background: #fff;
+  background: white;
   box-shadow: 0 0 10px #e7baff;
   animation: sparkle 3s ease-in-out infinite;
 }
@@ -57,7 +57,16 @@ body {
   z-index: 2;
   width: 100%;
   max-width: 680px;
+  margin: 0 auto;
   text-align: center;
+}
+
+.section {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 45px 0;
 }
 
 .top-label {
@@ -70,7 +79,7 @@ body {
   font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  margin-bottom: 22px;
+  margin: 0 auto 22px;
 }
 
 .names {
@@ -106,7 +115,7 @@ h1 {
   background: linear-gradient(120deg, rgba(174,100,220,.2), rgba(255,133,202,.12));
   border: 1px solid rgba(255,190,235,.25);
   font-size: 13px;
-  margin-bottom: 35px;
+  margin: 0 auto 35px;
 }
 
 .countdown {
@@ -221,13 +230,6 @@ h1 {
   margin-top: 28px;
 }
 
-.footer {
-  color: #847594;
-  font-size: 10px;
-  letter-spacing: 3px;
-  margin-top: 28px;
-}
-
 .finished {
   display: none;
   color: #ffd1ed;
@@ -236,9 +238,85 @@ h1 {
   margin-top: 22px;
 }
 
+.scroll-hint {
+  margin-top: 35px;
+  color: #cdb6df;
+  font-size: 12px;
+  animation: float 2s infinite ease-in-out;
+}
+
+.scroll-hint span {
+  display: block;
+  font-size: 25px;
+  color: #f5b8e8;
+  margin-top: 5px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+
+.divider {
+  width: 70%;
+  height: 1px;
+  margin: 10px auto 30px;
+  background: linear-gradient(90deg, transparent, #d99bf2, #ffafd9, transparent);
+  box-shadow: 0 0 12px #c77bdf;
+}
+
+.second-section {
+  padding-top: 45px;
+  padding-bottom: 60px;
+}
+
+.second-section .top-label {
+  color: #ffd4a8;
+  border-color: rgba(255,200,150,.25);
+}
+
+.second-section h1 {
+  background: linear-gradient(90deg, #fff, #ffd9a8, #ff9dcf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.second-section .tile {
+  border-color: rgba(255,200,150,.2);
+}
+
+.second-section .number {
+  text-shadow: 0 0 18px rgba(255,177,116,.5);
+}
+
+.second-section .date {
+  color: #ffe4c7;
+  border-color: rgba(255,200,150,.25);
+  background: rgba(255,180,120,.08);
+}
+
+.second-section .message {
+  color: #ffd2ae;
+}
+
+.second-section .clock span {
+  color: #ffd2ae;
+}
+
+.footer {
+  color: #847594;
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-top: 28px;
+}
+
 @media (max-width: 480px) {
   body {
-    padding: 28px 13px;
+    padding: 20px 13px;
+  }
+
+  .section {
+    min-height: 90vh;
   }
 
   .countdown {
@@ -272,85 +350,155 @@ h1 {
 
 <main class="container">
 
-  <div class="top-label">Wyjątkowy dzień ♡</div>
+  <!-- PIERWSZE ODLICZANIE -->
+  <section class="section">
 
-  <div class="names">
-    Milenka <span style="color:#ff9bd5">♡</span> Tobiaszek
-  </div>
+    <div class="top-label">Wyjątkowy dzień ♡</div>
 
-  <h1>Już niedługo się zobaczymy</h1>
-
-  <p class="description">
-    Kolejne wspólne chwile są coraz bliżej
-  </p>
-
-  <div class="date">
-    5 grudnia 2026 • godzina 00:00
-  </div>
-
-  <div class="countdown">
-    <div class="tile">
-      <span class="number" id="days">0</span>
-      <span class="unit">Dni</span>
+    <div class="names">
+      Milenka <span style="color:#ff9bd5">♡</span> Tobiaszek
     </div>
 
-    <div class="tile">
-      <span class="number" id="hours">00</span>
-      <span class="unit">Godzin</span>
-    </div>
+    <h1>Już niedługo się zobaczymy</h1>
 
-    <div class="tile">
-      <span class="number" id="minutes">00</span>
-      <span class="unit">Minut</span>
-    </div>
-
-    <div class="tile">
-      <span class="number" id="seconds">00</span>
-      <span class="unit">Sekund</span>
-    </div>
-  </div>
-
-  <div class="clock">
-    Aktualna godzina:
-    <span id="clock">00:00:00</span>
-  </div>
-
-  <section class="progress-card">
-    <div class="progress-heading">
-      <span>Postęp do naszego spotkania</span>
-      <span id="percentage">0%</span>
-    </div>
-
-    <div class="progress-track">
-      <div class="progress-bar" id="bar"></div>
-    </div>
-
-    <p class="progress-caption">
-      Każdy procent to kolejny krok bliżej ♡
+    <p class="description">
+      Kolejne wspólne chwile są coraz bliżej
     </p>
+
+    <div class="date">
+      4 grudnia 2026 • godzina 00:00
+    </div>
+
+    <div class="countdown">
+      <div class="tile">
+        <span class="number" id="days1">0</span>
+        <span class="unit">Dni</span>
+      </div>
+
+      <div class="tile">
+        <span class="number" id="hours1">00</span>
+        <span class="unit">Godzin</span>
+      </div>
+
+      <div class="tile">
+        <span class="number" id="minutes1">00</span>
+        <span class="unit">Minut</span>
+      </div>
+
+      <div class="tile">
+        <span class="number" id="seconds1">00</span>
+        <span class="unit">Sekund</span>
+      </div>
+    </div>
+
+    <div class="clock">
+      Aktualna godzina:
+      <span id="clock">00:00:00</span>
+    </div>
+
+    <section class="progress-card">
+      <div class="progress-heading">
+        <span>Postęp do naszego spotkania</span>
+        <span id="percentage">0%</span>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-bar" id="bar"></div>
+      </div>
+
+      <p class="progress-caption">
+        Każdy procent to kolejny krok bliżej ♡
+      </p>
+    </section>
+
+    <div class="finished" id="finished1">
+      To już dzisiaj! Nasz dzień nadszedł ♡
+    </div>
+
+    <div class="message">
+      Jeszcze trochę, Myszko...
+    </div>
+
+    <div class="scroll-hint">
+      Przewiń niżej, czeka kolejne odliczanie
+      <span>↓</span>
+    </div>
+
   </section>
 
-  <div class="finished" id="finished">
-    To już dzisiaj! Nasz dzień nadszedł ♡
-  </div>
+  <div class="divider"></div>
 
-  <div class="message">
-    Jeszcze trochę, Myszko...
-  </div>
+  <!-- DRUGIE ODLICZANIE DO SYLWESTRA -->
+  <section class="section second-section">
+
+    <div class="top-label">Kolejny wyjątkowy dzień ✨</div>
+
+    <div class="names">
+      Milenka <span style="color:#ffd2ae">♡</span> Tobiaszek
+    </div>
+
+    <h1>Odliczanie do Sylwestra</h1>
+
+    <p class="description">
+      Jeszcze chwila i przywitamy nowy rok!
+    </p>
+
+    <div class="date">
+      31 grudnia 2026 • godzina 00:00
+    </div>
+
+    <div class="countdown">
+      <div class="tile">
+        <span class="number" id="days2">0</span>
+        <span class="unit">Dni</span>
+      </div>
+
+      <div class="tile">
+        <span class="number" id="hours2">00</span>
+        <span class="unit">Godzin</span>
+      </div>
+
+      <div class="tile">
+        <span class="number" id="minutes2">00</span>
+        <span class="unit">Minut</span>
+      </div>
+
+      <div class="tile">
+        <span class="number" id="seconds2">00</span>
+        <span class="unit">Sekund</span>
+      </div>
+    </div>
+
+    <div class="clock">
+      Aktualna godzina:
+      <span id="clock2">00:00:00</span>
+    </div>
+
+    <div class="message">
+      Oby nowy rok przyniósł nam jeszcze więcej pięknych chwil ♡
+    </div>
+
+    <div class="finished" id="finished2">
+      Szczęśliwego Nowego Roku! ♡
+    </div>
+
+  </section>
 
   <div class="footer">
-    MILENKA & TOBIASZEK
+    MILENKA & TOBIASZEK • ♡
   </div>
 
 </main>
 
 <script>
-const target = new Date(2026, 11, 5, 0, 0, 0);
-const start = new Date(2026, 10, 8, 0, 0, 0);
+const meetingDate = new Date(2026, 11, 4, 0, 0, 0);
+const newYearDate = new Date(2026, 11, 31, 0, 0, 0);
+
+const progressStart = new Date(2026, 10, 8, 0, 0, 0);
 
 const $ = id => document.getElementById(id);
 
-// Gwiazdki na tle
+// Generowanie gwiazdek
 for (let i = 0; i < 120; i++) {
   const star = document.createElement('div');
   star.className = 'star';
@@ -367,56 +515,74 @@ for (let i = 0; i < 120; i++) {
   $('stars').appendChild(star);
 }
 
-function updateCountdown() {
+// Formatowanie czasu
+function formatTime(date) {
+  return [
+    date.getHours(),
+    date.getMinutes(),
+    date.getSeconds()
+  ].map(n => String(n).padStart(2, '0')).join(':');
+}
+
+// Aktualizacja wybranego odliczania
+function updateTimer(target, suffix) {
   const now = new Date();
   const difference = target - now;
 
-  $('clock').textContent = [
-    now.getHours(),
-    now.getMinutes(),
-    now.getSeconds()
-  ].map(n => String(n).padStart(2, '0')).join(':');
-
   if (difference <= 0) {
-    $('days').textContent = '0';
-    $('hours').textContent = '00';
-    $('minutes').textContent = '00';
-    $('seconds').textContent = '00';
-
-    $('bar').style.width = '100%';
-    $('percentage').textContent = '100%';
-    $('finished').style.display = 'block';
+    $('days' + suffix).textContent = '0';
+    $('hours' + suffix).textContent = '00';
+    $('minutes' + suffix).textContent = '00';
+    $('seconds' + suffix).textContent = '00';
+    $('finished' + suffix).style.display = 'block';
     return;
   }
 
   const totalSeconds = Math.floor(difference / 1000);
 
-  $('days').textContent = Math.floor(totalSeconds / 86400);
+  $('days' + suffix).textContent =
+    Math.floor(totalSeconds / 86400);
 
-  $('hours').textContent = String(
+  $('hours' + suffix).textContent = String(
     Math.floor(totalSeconds % 86400 / 3600)
   ).padStart(2, '0');
 
-  $('minutes').textContent = String(
+  $('minutes' + suffix).textContent = String(
     Math.floor(totalSeconds % 3600 / 60)
   ).padStart(2, '0');
 
-  $('seconds').textContent = String(
+  $('seconds' + suffix).textContent = String(
     totalSeconds % 60
   ).padStart(2, '0');
+}
 
-  // Procenty liczone od 8 listopada do 5 grudnia
+// Aktualizacja strony
+function updatePage() {
+  const now = new Date();
+
+  $('clock').textContent = formatTime(now);
+  $('clock2').textContent = formatTime(now);
+
+  updateTimer(meetingDate, '1');
+  updateTimer(newYearDate, '2');
+
+  // Pasek postępu pierwszego odliczania
   const progress = Math.max(0, Math.min(
     100,
-    (now - start) / (target - start) * 100
+    (now - progressStart) / (meetingDate - progressStart) * 100
   ));
 
   $('bar').style.width = progress + '%';
   $('percentage').textContent = progress.toFixed(1) + '%';
+
+  if (now >= meetingDate) {
+    $('bar').style.width = '100%';
+    $('percentage').textContent = '100%';
+  }
 }
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
+updatePage();
+setInterval(updatePage, 1000);
 </script>
 
 </body>
